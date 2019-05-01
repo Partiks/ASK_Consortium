@@ -104,15 +104,27 @@ router.route('/transactions').get( (req, res) => {
 	});
 });
 
-router.route('/transactions/add').post( (req, res) => {
-	console.log("/transactions/add called");
+router.route('/transactions/add/request').post( (req, res) => {
+	console.log("/transactions/add/request called");
 	let transaction = new Transaction(req.body);
 	transaction.save()
 		.then(transaction => {
-			res.status(200).json({'transaction' : 'Added sucessfully to consortium database'});
+			res.status(200).json({'Request Transaction' : 'Added sucessfully to consortium database'});
 		})
 		.catch(err => {
-			res.status(400).send('Failed to add transaction to consortium database')
+			res.status(400).send('Failed to add request transaction to consortium database')
+		});
+});
+
+router.route('/transactions/add/confirmed_seats').post( (req, res) => {
+	console.log("/transactions/add/confirmed_seats called");
+	let transaction = new Transaction(req.body);
+	transaction.save()
+		.then(transaction => {
+			res.status(200).json({'Confirmed Seats Transaction' : 'Added sucessfully to consortium database'});
+		})
+		.catch(err => {
+			res.status(400).send('Failed to add confirmed seats transaction to consortium database')
 		});
 });
 

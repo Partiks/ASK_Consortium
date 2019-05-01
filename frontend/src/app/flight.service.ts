@@ -23,7 +23,7 @@ export class FlightService {
   	addDeltaFlight(de, arr, price, seats){
   		console.log("ADD_SOUTH_FLIGHT_SERVICE --------");
   		const flight = {
-  		departure: departure,
+  		departure: de,
   		arrival: arr,
   		price: price,
   		seats_available: seats
@@ -39,7 +39,7 @@ export class FlightService {
   		seats_available: n_seats
   		};
   		console.log("SOUTH_FLIGHT_UPDATE_SERVICES ----");
-  		console.log(item);
+  		console.log(flight);
   		console.log(`${id}`);
   	  console.log(`${this.uri}/flights/delta/update/${id}`);
   		return this.http.post(`${this.uri}/flights/delta/update/${id}`, flight);
@@ -61,7 +61,7 @@ export class FlightService {
   	addSouthFlight(de, arr, price, seats){
   		console.log("ADD_SOUTH_FLIGHT_SERVICE --------");
   		const flight = {
-  		departure: departure,
+  		departure: de,
   		arrival: arr,
   		price: price,
   		seats_available: seats
@@ -77,7 +77,7 @@ export class FlightService {
   		seats_available: n_seats
   		};
   		console.log("SOUTH_FLIGHT_UPDATE_SERVICES ----");
-  		console.log(item);
+  		console.log(flight);
   		console.log(`${id}`);
   	  console.log(`${this.uri}/flights/south/update/${id}`);
   		return this.http.post(`${this.uri}/flights/south/update/${id}`, flight);

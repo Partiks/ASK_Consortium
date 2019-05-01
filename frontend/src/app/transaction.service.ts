@@ -29,14 +29,16 @@ export class TransactionService {
 
 
 		var today = mm + '/' + dd + '/' + String(yyyy);
-		console.log("HIJO MIJO");
+		console.log(" REQUEST TRANSACTION HIJO MIJO");
 		console.log(today);
 		var filler = "-"
   		
   		const transaction = {
-  			seller: seller,
-  			buyer: buyer,
-  			item: item_price,
+  			requester: requester,
+  			departure: depart,
+  			arrival: arr,
+  			req_date: req_date,
+  			seats: seats,
   			date: today
   		}
 
@@ -60,15 +62,17 @@ export class TransactionService {
 
 
 		var today = mm + '/' + dd + '/' + String(yyyy);
-		console.log("HIJO MIJO");
+		console.log("NORMAL TRANSACTION HIJO MIJO");
 		console.log(today);
   		
   		const transaction = {
+  			departure: depart,
+  			arrival: arr,
+  			req_date: req_date,
   			seller: seller,
   			buyer: buyer,
-  			item_id: item_id,
-  			item_name: item_name,
-  			item_price: item_price,
+  			seats: seats,
+  			seat_price: seat_price,
   			date: today
   		}
 
@@ -76,6 +80,5 @@ export class TransactionService {
   		console.log(transaction);
   		return this.http.post(`${this.uri}/transactions/add`, transaction);
   	}
-
 
 }
