@@ -104,6 +104,16 @@ router.route('/transactions').get( (req, res) => {
 	});
 });
 
+router.route('/transactions/:id').get((req, res) => {
+	console.log("/transactions/id called");
+	Transaction.findById(req.params.id, (err, transaction) => {
+		if (err)
+			console.log(err);
+		else
+			res.json(transaction);
+	});
+});
+
 router.route('/transactions/add/request').post( (req, res) => {
 	console.log("/transactions/add/request called");
 	let transaction = new Transaction(req.body);
@@ -116,21 +126,21 @@ router.route('/transactions/add/request').post( (req, res) => {
 		});
 });
 
-router.route('/transactions/add/confirmed_seats').post( (req, res) => {
-	console.log("/transactions/add/confirmed_seats called");
+router.route('/transactions/add/offer_seats').post( (req, res) => {
+	console.log("/transactions/add/offer_seats called");
 	let transaction = new Transaction(req.body);
 	transaction.save()
 		.then(transaction => {
-			res.status(200).json({'Confirmed Seats Transaction' : 'Added sucessfully to consortium database'});
+			res.status(200).json({'Offered Seats Transaction' : 'Added sucessfully to consortium database'});
 		})
 		.catch(err => {
-			res.status(400).send('Failed to add confirmed seats transaction to consortium database')
+			res.status(400).send('Failed to add offered seats transaction to consortium database')
 		});
 });
 
 router.route('/transactions/delete/:id').get( (req, res) => {
 	console.log("/transactions/delete/id called");
-	Transaction.findByIdAndRemove({_id: req.params.id}, (err, item) => {
+	Transaction.findByIdAndRemove({_id: req.params.id}, (err, transaction) => {
 		if(err)
 			res.json(err);
 		else
@@ -163,7 +173,7 @@ router.route('/flights/south/add').post( (req, res) => {
 
 router.route('/flights/south/delete/:id').get( (req, res) => {
 	console.log("/flights/delete/id called");
-	SouthFlight.findByIdAndRemove({_id: req.params.id}, (err, item) => {
+	SouthFlight.findByIdAndRemove({_id: req.params.id}, (err, flight) => {
 		if(err)
 			res.json(err);
 		else
@@ -171,13 +181,48 @@ router.route('/flights/south/delete/:id').get( (req, res) => {
 	});
 });
 
+router.route('/flights/south/specific/:de/:arr/:fd').get( (req, res) =>{
+	console.log("/flights/south/specific called");
+	SouthFlight.findOne({departure: req.params.de, arrival: req.params.arr, flight_date: req.params.fd}, (err, flight) => {
+		if(err)
+			res.json(err);
+		else
+			res.json(flight);
+	});
+});
+
+router.route('/flights/delta/specific/:de/:arr/:fd').get( (req, res) =>{
+	console.log("/flights/delta/specific called");
+	console.log(req.params.de);
+	console.log(req.params.arr);
+	console.log(req.params.fd);
+	DeltaFlight.findOne({departure: req.params.de, arrival: req.params.arr, flight_date: req.params.fd}, (err, flight) => {
+		if(err)
+			res.json(err);
+		else{
+			console.log(flight);
+			res.json(flight);
+		}
+	});
+});
+
+/*router.route('/flights/delta/specific/:de/:arr/:fd').get( (req, res) =>{
+	console.log("/flights/delta/specific called");
+	DeltaFlight.findOne({departure: req.params.de, arrival: req.params.arr, date: req.params.fd}, (err, flight) => {
+		if(err)
+			res.json(err);
+		else
+			res.json(flight);
+	});
+}); */
+
 router.route('/flights/delta').get( (req, res) => {
 	console.log("/flights/delta called");
 	DeltaFlight.find((err, flights ) => {
 		if (err)
-			console.log(err)
+			console.log(err);
 		else
-			res.json(flights)
+			res.json(flights);
 	});
 });
 
@@ -195,7 +240,7 @@ router.route('/flights/delta/add').post( (req, res) => {
 
 router.route('/flights/delta/delete/:id').get( (req, res) => {
 	console.log("/flights/delete/id called");
-	DeltaFlight.findByIdAndRemove({_id: req.params.id}, (err, item) => {
+	DeltaFlight.findByIdAndRemove({_id: req.params.id}, (err, flight) => {
 		if(err)
 			res.json(err);
 		else

@@ -1,3 +1,31 @@
-<p>
-  error works!
-</p>
+<mat-toolbar color="primary">
+<mat-toolbar-row>
+<span>ASK Airline Consortium</span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+ </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="main-div">
+
+<mat-card class="card-field-full-width" >
+  <mat-card-header>
+    <mat-card-title>Error</mat-card-title>
+  </mat-card-header>
+    <mat-card-content>
+    	Either of this events occured:
+    	<br> You tried to buy an item which is already sold out
+    	<br> You tied to buy your own item
+    	<br> You are not the owner of item you tried to edit
+    	<br> You tried to delete an item you do not own
+    	<br> You don't have sufficient funds to buy the item you tried to buy
+    	<br> You tried to deposit negative amount of USD to your account (Why Though ?)
+    	<br> You tried to register and didn't fill out the user details in correct format
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="backToList()" mat-raised-button color="primary">BACK</button>
+    </mat-card-actions>
+</mat-card>
+
+</div>

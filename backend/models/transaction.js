@@ -12,8 +12,8 @@ let Transaction = new Schema({
 	arrival:{
 		type: String
 	},
-	req_date:{
-		type: Date
+	flight_date:{
+		type: String
 	},
 	seller:{
 		type: String
@@ -25,11 +25,11 @@ let Transaction = new Schema({
 		type: Number,
 		default: 0
 	},
-	seat_price:{
+	date:{
 		type: String
 	},
-	date:{
-		type: Date
+	status:{
+		type: String
 	}
 },{ collection : 'transactions' }
 );

@@ -1,3 +1,101 @@
-<p>
-  list works!
-</p>
+<mat-toolbar color="primary">
+ <mat-toolbar-row class="white_bg">
+ </mat-toolbar-row>
+ <mat-toolbar-row class="white_bg">
+		<button mat-raised-button color="primary" (click)="requestTransaction()">Request seats from ASK airlines</button> &nbsp;
+		<button mat-raised-button color="primary" (click)="deposit()">Deposit Money into Account</button>
+		<span class="example-fill-remaining-space"></span>
+	    
+	    <span class="example-spacer"></span>  <!--&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+		<button mat-raised-button color="primary" (click)="showTransactions()">Show past Transactions</button>
+</mat-toolbar-row>
+<div>
+<mat-toolbar-row>
+<span>ASK Airline Consortium</span>
+    <span class="example-fill-remaining-space"></span>
+    <div style="font-size: 20px">
+            <!--> <mat-icon style="font-size: 30px" class="center">person</mat-icon>  <!-->
+            <button mat-button>Welcome {{user.username}} </button>
+            <button *ngIf="super" mat-button (click)="registerUser()"> Register New Users</button>
+            <button mat-button (click)="logOut()"> Logout </button>
+    </div>
+ </mat-toolbar-row>
+</div>
+</mat-toolbar>
+
+	<mat-card>
+		<!-- > <button mat-raised-button color="primary" routerLink="/create/:uname">Sell New Item</button> <!-->
+		
+		<br>
+		<mat-divider></mat-divider>
+		<br>
+		<table mat-table [dataSource]="transactions">
+			<ng-container matColumnDef="Departure">
+				<th mat-header-cell *matHeaderCellDef>Departure</th>
+				<td mat-cell *matCellDef="let element"> {{element.departure}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Arrival">
+				<th mat-header-cell *matHeaderCellDef>Arrival</th>
+				<td mat-cell *matCellDef="let element"> {{element.arrival}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Requester">
+				<th mat-header-cell *matHeaderCellDef>Requester</th>
+				<td mat-cell *matCellDef="let element"> {{element.requester}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Seller">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Seller</th>
+				<td mat-cell *matCellDef="let element"> {{element.seller}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Seats">
+				<th mat-header-cell *matHeaderCellDef>Seats</th>
+				<td mat-cell *matCellDef="let element"> {{element.seats}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Seat Price">
+				<th mat-header-cell *matHeaderCellDef>Seat Price</th>
+				<td mat-cell *matCellDef="let element"> 1 </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Flight Date">
+				<th mat-header-cell *matHeaderCellDef>Flight Date</th>
+				<td mat-cell *matCellDef="let element"> {{element.flight_date}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Posted Date">
+				<th mat-header-cell *matHeaderCellDef>Posted Date</th>
+				<td mat-cell *matCellDef="let element"> {{element.date}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Status">
+				<th mat-header-cell *matHeaderCellDef>Status</th>
+				<td mat-cell *matCellDef="let element"> {{element.status}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Actions">
+				<th mat-header-cell *matHeaderCellDef class="mat-column-right">Actions</th>
+				<td mat-cell *matCellDef="let element"  class="mat-column-right">
+					<button mat-button color="primary" (click)="buyTransaction(element._id)">Buy</button>
+					<button mat-button color="primary" (click)="confirmTransaction(element._id)">Offer Seats</button>
+					<!-- <button mat-button color="primary" (click)="editItem(element._id)">Edit</button> -->
+					<button mat-button color="warn" (click)="deleteTransaction(element._id)">Delete</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+		</table>
+	</mat-card>
+	<mat-card color="warn" align="right"> Account Balance: {{user.balance}} </mat-card>
