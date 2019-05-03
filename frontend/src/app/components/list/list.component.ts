@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
 	transactions: Transaction[];
 	transaction: any={};
 	user: any = {};
+	buyer: any = {};
 	seller: any = {};
 	flight: any = {};
 	uname: String;
@@ -59,7 +60,7 @@ export class ListComponent implements OnInit {
 	offerSeats(id){
 	/*
 		Stage 1: Find the transaction of interest [transactionService.getTransactionById()]
-		Stage 2: See if the requester is not the same as the proposed seller (responder) [Status == 'Sold' or requester == this.uname]
+		Stage 2: See if the requester is not the same as the proposed seller (responder) [Status == 'Closed' or requester == this.uname]
 		Stage 3: Identify the airlines and get the flight of interest, this code can be changed to dynamically handle any airlines in future [this.uname == 'a_delta' && getSpecificFlight]
 		Stage 4: See if the airlines that is offering seats, actually has the seats to sell it to requester airlines. [flightService.getSpecificFlight(departure, arrival, flight_date)]
 		Stage 5: Update the flight's available_seats (freeze those seats)
@@ -72,7 +73,7 @@ export class ListComponent implements OnInit {
 			console.log(this.transaction);
 			console.log(this.user);
 			//Stage 2
-			if(this.transaction.status == "Sold" || this.transaction.requester == this.uname){
+			if(this.transaction.status == "Closed" || this.transaction.requester == this.uname){
 				this.router.navigate([`/error/${this.uname}`]);
 				return ;
 			}
@@ -110,16 +111,23 @@ export class ListComponent implements OnInit {
 				console.log("IDENTIFIED SELLER AS SOUTHWEST");
 				console.log(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date);
 				this.flightService.getSpecificSouthFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date).subscribe( res => {
+					// search flight available in seller's flight DB
 					console.log("YAYYY, FLIGHT RES FOUND !");
+					console.log(this.flight);
 					this.flight = res;
 					var fs = this.flight.available_seats;
 					var ts = this.transaction.seats;
+					//STAGE 4
 					if(fs >= ts){
-						this.transaction.buyer = this.transaction.requester; //setting this now to avoid race conditions on offers
-						this.transaction.seller = this.uname;
-						this.transaction.status = "Available Offer";
-						this.transactionService.addOfferTransaction(this.transaction).subscribe( () =>{
-							this.fetchTransactions();
+						//STAGE 5
+						this.flightService.updateSpecificSouthFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date, this.transaction.seats).subscribe(()=>{
+							//STAGE 6 updated flight seats, now add transaction
+							this.transaction.buyer = this.transaction.requester; //setting this now to avoid race conditions on offers
+							this.transaction.seller = this.uname;
+							this.transaction.status = "Available Offer"; //
+							this.transactionService.addOfferTransaction(this.transaction).subscribe( () =>{
+								this.fetchTransactions();
+							});
 						});
 					}else{
 						//this.router.navigate([`/error/${this.uname}`]);
@@ -128,7 +136,7 @@ export class ListComponent implements OnInit {
 			}
 
 			console.log(this.user.balance);
-			/*this.transactionService.updateTransaction(id, this.transaction.name, this.uname, this.transaction.description, this.transaction.price, "Sold Out").subscribe(() => {
+			/*this.transactionService.updateTransaction(id, this.transaction.name, this.uname, this.transaction.description, this.transaction.price, "Closed Out").subscribe(() => {
 			    	this.fetchTransactions();
 			});
 		    console.log("STEP 4");
@@ -139,42 +147,71 @@ export class ListComponent implements OnInit {
 
 	buyTransaction(id){
 	/*
+		Stage 1: get transaction
+		Stage 2: check if seats are already bought or the seller is trying to buy the seats from himself
+		Stage : get buyer (requester) and seller usernames, deduct $1 from buyer's account and add $1 to seller's account
+		Stage : add buyTransaction() to transaction database
+		Stage : modify flight database to reflect the transaction
+	*/
+
 		console.log("REACHED BUY_TRANSACTION");
 		this.transactionService.getTransactionById(id).subscribe(res => {
 			this.transaction = res;
-			if(this.transaction.status == "Sold" || this.transaction.requester == this.uname){
+			if(this.transaction.status != "Available Offer" || this.transaction.requester != this.uname){
 				this.router.navigate([`/error/${this.uname}`]);
 				return ;
 			}
-			console.log(this.transaction);
-			console.log(this.user);
-			console.log(this.transaction.seat_price);
-			console.log(this.user.balance);
-				if(this.transaction.seat_price < this.user.balance){
-					console.log("STEP 2");
-					this.userService.getUserByUname(this.transaction.owner).subscribe( (res)=>{
-						console.log("STEP 3");
-						this.seller = res;
-						this.user.balance = parseInt(this.user.balance) - parseInt(this.transaction.price);
-						console.log(this.user.balance);
-						this.seller.balance = parseInt(this.seller.balance) + parseInt(this.transaction.price);
-						console.log(this.seller.balance);
-						console.log(this.user.username);
-						console.log(this.seller.username);
-						this.userService.updateUser(this.uname, this.user.password, this.user.balance).subscribe(() => { });
-						this.userService.updateUser(this.seller.username, this.seller.password, this.seller.balance).subscribe(() => {	});
-						this.transactionService.addTransaction(this.seller.username, this.user.username, this.transaction._id, this.transaction.name, this.transaction.price).subscribe(() => {});
-						this.transactionService.updateTransaction(id, this.transaction.name, this.uname, this.transaction.description, this.transaction.price, "Sold Out").subscribe(() => { this.fetchTransactions(); });
-					});
-					console.log("STEP 4");
-				}
-				else{
-					this.router.navigate([`/error/${this.uname}`]);
-					console.log("INSUFFICIENT FUNDS");
-					//throw insufficient funds error here
-				}
+			var seat_count = this.transaction.seats;
+			var cost = seat_count*1; //base price of each seat is 1 ether
+			console.log("COST OF SEATS = " + cost);
+
+			this.userService.getUserByUname(this.uname).subscribe ( (buyer) => {
+				this.buyer = buyer;
+				console.log("BUYER FOUND = " + this.buyer.username + " balance = " + this.buyer.balance);
+				this.userService.getUserByUname(this.transaction.seller).subscribe( (seller) =>{
+					this.seller = seller;
+					console.log(" SELLER FOUND = " + this.seller.username + " balance = " + this.seller.balance);
+					this.buyer.balance = this.buyer.balance - cost;
+					this.seller.balance = this.seller.balance + cost;
+					//update buyer and seller database records
+					this.userService.updateUser(this.buyer.username, this.buyer.password, this.buyer.employer, this.buyer.balance);
+					this.userService.updateUser(this.seller.username, this.seller.password, this.seller.employer, this.seller.balance);
+
+					//(not ?) adding transaction to database
+					this.transaction.seller = this.seller.username;
+					this.transaction.buyer = this.buyer.username;
+					console.log(this.transaction);
+
+					//marking the original transaction as "Closed"
+					this.transactionService.updateSpecificTransaction(this.transaction.requester, this.transaction.departure, this.transaction.arrival, this.transaction.flight_date, this.transaction.seats, 'Closed').subscribe( ()=>{});
+
+					//updating seller flight records
+					if(this.seller.username == "a_delta"){
+						this.flightService.updateSpecificDeltaFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date, this.transaction.seats).subscribe(()=>{
+							
+							//STAGE 6 updated flight seats, now add transaction
+							this.transaction.status = "Bought"; 
+							this.transactionService.addBuyTransaction(this.transaction).subscribe( () =>{
+								this.fetchTransactions();
+							});
+						});
+					}
+					
+					if(this.seller.username == "b_south"){
+						this.flightService.updateSpecificSouthFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date, this.transaction.seats).subscribe(()=>{
+							//STAGE 6 updated flight seats, now add transaction
+							this.transaction.buyer = this.transaction.requester; //setting this now to avoid race conditions on offers
+							this.transaction.seller = this.uname;
+							this.transaction.status = "Available Offer"; //
+							this.transactionService.addOfferTransaction(this.transaction).subscribe( () =>{
+								this.fetchTransactions();
+							});
+						});
+					}
+					
+				});
+			});
 		});
-	*/
 	}
 
 	editTransaction(id) {

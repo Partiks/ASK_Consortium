@@ -17,9 +17,13 @@ export class TransactionService {
 		return this.http.get(`${this.uri}/transactions`);
 	}
 
-    getTransactionById(id){
-        return this.http.get(`${this.uri}/transactions/${id}`);
-    }
+	getTransactionById(id){
+		return this.http.get(`${this.uri}/transactions/${id}`);
+	}
+
+	updateSpecificTransaction(req, de, arr, fd, seats, status){
+		return this.http.get(`${this.uri}/transactions/update/specific/${req}/${de}/${arr}/${fd}/${seats}/${status}`);
+	}
 
 	addRequestTransaction(requester, depart, arr, seats, flight_date){
 
@@ -30,7 +34,7 @@ export class TransactionService {
 		}
 		var m = day.getMonth() + 1; //January is 0!
 		if (m < 10) {
-		  var mm = 0 + String(m);
+			var mm = 0 + String(m);
 		}
 		var yyyy = day.getFullYear();
 		var today = mm + '-' + dd + '-' + String(yyyy);
@@ -43,11 +47,11 @@ export class TransactionService {
 			departure: depart,
 			arrival: arr,
 			flight_date: flight_date,
-            seller: filler,
-            buyer: filler,
+			seller: filler,
+			buyer: filler,
 			seats: seats,
 			date: today,
-            status: 'Open'
+			status: 'Open'
 		}
 
 		console.log("ADDING TRANSACTION TO DATABASE");
@@ -66,23 +70,32 @@ export class TransactionService {
 
 
 
-	addSeatsTransaction(seller, buyer, depart, arr, seats, flight_date){
-        var day = new Date();
-        var d = day.getDate();
-        if (d < 10) {
-          var dd = '0' + String(d);
-        }
-        var m = day.getMonth() + 1; //January is 0!
-        if (m < 10) {
-          var mm = 0 + String(m);
-        }
-        var yyyy = day.getFullYear();
-        var today = mm + '-' + dd + '-' + String(yyyy);
-        console.log("NORMAL TRANSACTION HIJO MIJO");
-        console.log(today);
-		
+	//addBuyTransaction(seller, buyer, depart, arr, seats, flight_date){
+	addBuyTransaction(tr){
+		var day = new Date();
+		var d = day.getDate();
+		if (d < 10) {
+		  var dd = '0' + String(d);
+		}
+		var m = day.getMonth() + 1; //January is 0!
+		if (m < 10) {
+		  var mm = 0 + String(m);
+		}
+		var yyyy = day.getFullYear();
+		var today = mm + '-' + dd + '-' + String(yyyy);
+		console.log("NORMAL TRANSACTION HIJO MIJO");
+		console.log(today);
+
+		delete tr['__v'];
+		delete tr['_id'];
+		console.log(tr);
+		tr['date']=today;
+		console.log(" BUY TRANSACTION FROM SERVICE ------");
+		console.log(tr);
+
+		/*
 		const transaction = {
-            requester: buyer,
+			requester: buyer,
 			departure: depart,
 			arrival: arr,
 			flight_date: flight_date,
@@ -90,12 +103,12 @@ export class TransactionService {
 			buyer: buyer,
 			seats: seats,
 			date: today,
-            status: 'Sold'
-		}
+			status: 'Sold'
+		} */
 
 		console.log("ADDING TRANSACTION TO DATABASE");
-		console.log(transaction);
-		return this.http.post(`${this.uri}/transactions/add`, transaction);
+
+		return this.http.post(`${this.uri}/transactions/add/buy`, tr);
 	}
 
 	deleteTransactionById(id){

@@ -140,6 +140,47 @@ router.route('/transactions/add/offer').post( (req, res) => {
 		});
 });
 
+router.route('/transactions/add/buy').post( (req, res) => {
+	console.log("/transactions/add/buy called");
+	let transaction = new Transaction(req.body);
+	console.log(transaction);
+	transaction.save()
+		.then(transaction => {
+			res.status(200).json({'Buy Transaction' : 'Added sucessfully to consortium database'});
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(400).send('Failed to add BUY transaction to consortium database');
+		});
+});
+
+router.route('/transactions/update/specific/:requ/:de/:arr/:fd/:seats/:status').get( (req, res) =>{
+	console.log("/transactions/specific/ called");
+	Transaction.findOne({requester: req.params.requ, departure: req.params.de, arrival: req.params.arr, flight_date: req.params.fd, seats: req.params.seats, status: 'Open'}, (err, transaction) => {
+
+		if(!transaction){
+			console.log("Entered TRANSACTION update error");
+			res.status(400).send(err);
+			console.log("Exiting TRANSACTION update error");
+		}
+		else
+		{
+			transaction.requester = req.params.requ;
+			transaction.departure = req.params.de;
+			transaction.arrival = req.params.arr;
+			transaction.flight_date = req.params.fd;
+			transaction.available_seats = req.params.seats;
+			transaction.status = 'Closed';
+
+			transaction.save().then(transaction => {
+				res.json('Updated the TRANSACTION information ');
+			}).catch(err => {
+				res.status(400).send(err);
+			});
+		}
+	});
+});
+
 router.route('/transactions/delete/:id').get( (req, res) => {
 	console.log("/transactions/delete/id called");
 	Transaction.findByIdAndRemove({_id: req.params.id}, (err, transaction) => {
@@ -206,8 +247,10 @@ router.route('/flights/south/specific/:de/:arr/:fd/:seats').get( (req, res) =>{
 		{
 			flight.departure = req.params.de;
 			flight.arrival = req.params.arr;
-			flight.flight_date = req.params.flight_date;
-			flight.available_seats = flight.available_seats - req.params.seats;
+			flight.flight_date = req.params.fd;
+			if(flight.available_seats > 0){
+				flight.available_seats = flight.available_seats - req.params.seats;
+			}
 
 			flight.save().then(flight => {
 				res.json('Updated the SOUTHWEST flight information with ' + flight.available_seats + ' seats remaining');
@@ -224,7 +267,7 @@ router.route('/flights/delta/specific/:de/:arr/:fd/:seats').get( (req, res) =>{
 
 		if(!flight){
 			console.log("Entered DELTA update flight error");
-			console.log(req.params.seats);
+			console.log(req.params);
 			res.send(err);
 			console.log("Exiting DELTA update flight error");
 		}
@@ -233,7 +276,7 @@ router.route('/flights/delta/specific/:de/:arr/:fd/:seats').get( (req, res) =>{
 			console.log(flight);
 			flight.departure = req.params.de;
 			flight.arrival = req.params.arr;
-			flight.flight_date = req.params.flight_date;
+			flight.flight_date = req.params.fd;
 			flight.available_seats = flight.available_seats - req.params.seats;
 
 			flight.save().then(flight => {
