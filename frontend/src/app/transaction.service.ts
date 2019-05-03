@@ -21,6 +21,11 @@ export class TransactionService {
 		return this.http.get(`${this.uri}/transactions/${id}`);
 	}
 
+	updateOfferTransactionById(id){
+		//this updates the offer transaction to accepted so that the offer cannot be bought again
+		return this.http.get(`${this.uri}/transactions/update/offer/${id}`);
+	}
+
 	updateSpecificTransaction(req, de, arr, fd, seats, status){
 		return this.http.get(`${this.uri}/transactions/update/specific/${req}/${de}/${arr}/${fd}/${seats}/${status}`);
 	}

@@ -181,6 +181,18 @@ router.route('/transactions/update/specific/:requ/:de/:arr/:fd/:seats/:status').
 	});
 });
 
+router.route('/transactions/update/offer/:id').get( (req,res) => {
+	console.log("/transactions/update/offer/id called");
+	Transaction.findOne({_id: req.params.id}, (err, transaction) =>{
+		transaction.status='Accepted';
+		transaction.save().then(transaction => {
+			res.json('Updated the OFFER TRANSACTION status');
+		}).catch(err => {
+			res.status(400).send(err);
+		});
+	});
+});
+
 router.route('/transactions/delete/:id').get( (req, res) => {
 	console.log("/transactions/delete/id called");
 	Transaction.findByIdAndRemove({_id: req.params.id}, (err, transaction) => {
