@@ -11,6 +11,9 @@ export class TransactionService {
 	constructor(private http: HttpClient) {  }
 
 	getAllTransactions(){
+		//console.log("------- PARTIKS TRANSACTION TEST ------");
+		//console.log(this.http.get(`${this.uri}/transactions`));
+		//console.log("------- PARTIKS TRANSACTION TEST OVER ------");
 		return this.http.get(`${this.uri}/transactions`);
 	}
 
@@ -30,7 +33,7 @@ export class TransactionService {
 		  var mm = 0 + String(m);
 		}
 		var yyyy = day.getFullYear();
-		var today = mm + '/' + dd + '/' + String(yyyy);
+		var today = mm + '-' + dd + '-' + String(yyyy);
 		console.log(" REQUEST TRANSACTION HIJO MIJO");
 		console.log(today);
 		var filler = "-"
@@ -52,6 +55,15 @@ export class TransactionService {
 		return this.http.post(`${this.uri}/transactions/add/request`, transaction);
 	}
 
+	addOfferTransaction(tr){
+		console.log("OFFER TRANSACTION ---- ");
+		delete tr['__v'];
+		delete tr['_id'];
+		console.log(tr);
+		console.log(`${this.uri}/transactions/add/offer`);
+		return this.http.post(`${this.uri}/transactions/add/offer`, tr);
+	}
+
 
 
 	addSeatsTransaction(seller, buyer, depart, arr, seats, flight_date){
@@ -65,7 +77,7 @@ export class TransactionService {
           var mm = 0 + String(m);
         }
         var yyyy = day.getFullYear();
-        var today = mm + '/' + dd + '/' + String(yyyy);
+        var today = mm + '-' + dd + '-' + String(yyyy);
         console.log("NORMAL TRANSACTION HIJO MIJO");
         console.log(today);
 		
@@ -86,4 +98,7 @@ export class TransactionService {
 		return this.http.post(`${this.uri}/transactions/add`, transaction);
 	}
 
+	deleteTransactionById(id){
+		return this.http.get(`${this.uri}/transactions/delete/${id}`);
+	}
 }

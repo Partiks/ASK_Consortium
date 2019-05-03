@@ -12,7 +12,7 @@ let DeltaFlight = new Schema({
 	flight_date:{
 		type: String
 	},
-	seats_available:{
+	available_seats:{
 		type: Number,
 		default: 2
 	}

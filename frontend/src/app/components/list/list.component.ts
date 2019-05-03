@@ -4,15 +4,17 @@ import {MatTableDataSource} from '@angular/material';
 
 import { User } from '../../user.model';
 import { Transaction } from '../../transaction.model';
+import { Flight } from '../../flight.model';
 import {UserService} from '../../user.service';
 import {FlightService} from '../../flight.service';
 import {TransactionService} from '../../transaction.service'
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+	selector: 'app-list',
+	templateUrl: './list.component.html',
+	styleUrls: ['./list.component.css']
 })
+
 export class ListComponent implements OnInit {
 	transactions: Transaction[];
 	transaction: any={};
@@ -32,14 +34,14 @@ export class ListComponent implements OnInit {
 		this.fetchTransactions();
 		this.route.params.subscribe( params => {
 			this.uname = params.uname;
-			 if(this.uname == "superuser"){
-			 	this.super = true;
-			 }
-			 console.log("UNAME POSSIBLE ???");
-			 console.log(this.uname);
-			 this.userService.getUserByUname(this.uname).subscribe( res => {
-			 	this.user = res;
-			 })
+			if(this.uname == "superuser"){
+				this.super = true;
+			}
+			console.log("UNAME POSSIBLE ???");
+			console.log(this.uname);
+			this.userService.getUserByUname(this.uname).subscribe( res => {
+				this.user = res;
+			})
 		});
 	}
 
@@ -54,28 +56,75 @@ export class ListComponent implements OnInit {
 			});
 	}
 
-	confirmTransaction(id){
+	offerSeats(id){
+	/*
+		Stage 1: Find the transaction of interest [transactionService.getTransactionById()]
+		Stage 2: See if the requester is not the same as the proposed seller (responder) [Status == 'Sold' or requester == this.uname]
+		Stage 3: Identify the airlines and get the flight of interest, this code can be changed to dynamically handle any airlines in future [this.uname == 'a_delta' && getSpecificFlight]
+		Stage 4: See if the airlines that is offering seats, actually has the seats to sell it to requester airlines. [flightService.getSpecificFlight(departure, arrival, flight_date)]
+		Stage 5: Update the flight's available_seats (freeze those seats)
+		Stage 6: Add Offer transaction in Blockchain
+	*/
 		console.log("REACHED CONFIRM_TRANSACTION");
+		//Stage 1
 		this.transactionService.getTransactionById(id).subscribe(res => {
 			this.transaction = res;
 			console.log(this.transaction);
 			console.log(this.user);
+			//Stage 2
 			if(this.transaction.status == "Sold" || this.transaction.requester == this.uname){
 				this.router.navigate([`/error/${this.uname}`]);
 				return ;
 			}
-			// search flight available in seller's flight DB
+			//Stage 3
 			if(this.uname == "a_delta"){
-				//TODO: implement this function in flight service, then in server.js
 				console.log("IDENTIFIED SELLER AS DELTA");
 				console.log(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date);
-				this.flight = this.flightService.getSpecificDeltaFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date);
-				console.log(this.flight);
+				this.flightService.getSpecificDeltaFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date).subscribe( res => {
+					// search flight available in seller's flight DB
+					console.log("YAYYY, FLIGHT RES FOUND !");
+					console.log(this.flight);
+					this.flight = res;
+					var fs = this.flight.available_seats;
+					var ts = this.transaction.seats;
+					//STAGE 4
+					if(fs >= ts){
+						//STAGE 5
+						this.flightService.updateSpecificDeltaFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date, this.transaction.seats).subscribe(()=>{
+							//STAGE 6 updated flight seats, now add transaction
+							this.transaction.buyer = this.transaction.requester; //setting this now to avoid race conditions on offers
+							this.transaction.seller = this.uname;
+							this.transaction.status = "Available Offer"; //
+							this.transactionService.addOfferTransaction(this.transaction).subscribe( () =>{
+								this.fetchTransactions();
+							});
+						});
+					}else{
+						//this.router.navigate([`/error/${this.uname}`]);
+					}
+				});
 			}
 			if(this.uname == "b_south"){
 				//TODO: implement this function in flight service, then in server.js
-				this.flight = this.flightService.getSpecificSouthFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date);
-				console.log(this.flight);
+				//searching if flight is available in seller airline's DB
+				console.log("IDENTIFIED SELLER AS SOUTHWEST");
+				console.log(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date);
+				this.flightService.getSpecificSouthFlight(this.transaction.departure, this.transaction.arrival, this.transaction.flight_date).subscribe( res => {
+					console.log("YAYYY, FLIGHT RES FOUND !");
+					this.flight = res;
+					var fs = this.flight.available_seats;
+					var ts = this.transaction.seats;
+					if(fs >= ts){
+						this.transaction.buyer = this.transaction.requester; //setting this now to avoid race conditions on offers
+						this.transaction.seller = this.uname;
+						this.transaction.status = "Available Offer";
+						this.transactionService.addOfferTransaction(this.transaction).subscribe( () =>{
+							this.fetchTransactions();
+						});
+					}else{
+						//this.router.navigate([`/error/${this.uname}`]);
+					}
+				});
 			}
 
 			console.log(this.user.balance);
@@ -140,19 +189,11 @@ export class ListComponent implements OnInit {
 	this.router.navigate([`/deposit/${this.uname}`]);
 	}
 
-	/*deleteTransaction(id) {
-		this.transactionService.getTransactionById(id).subscribe(res => {
-		    this.transaction = res;
-		    if(this.transaction.seller == this.uname && this.transaction.buyer != '-'){
-		      this.transactionService.deleteTransaction(id).subscribe( () =>{
-		        this.fetchTransactions();
-		      });
-		    }
-		    else{
-		      this.router.navigate([`/error/${this.uname}`]);
-		    }
+	deleteTransaction(id) {
+		this.transactionService.deleteTransactionById(id).subscribe( () =>{
+			this.fetchTransactions();
 		});
-	} */
+	}
 
 	registerUser(){
 		this.router.navigate([`/register/superuser`]);
