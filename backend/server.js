@@ -15,9 +15,9 @@ const fs = require("fs"),
 	Web3 = require('web3'),
 	solc = require('solc');
 
-const bytecode = fs.readFileSync('blockchain_AskConsortium_sol_AirlineConsortium.bin').toString();
+const bytecode = fs.readFileSync('blockchain_AskAirlineConsortium_sol_AskAirlineConsortium.bin').toString();
 //console.log(bytecode);
-const abi = JSON.parse(fs.readFileSync('blockchain_AskConsortium_sol_AirlineConsortium.abi').toString());
+const abi = JSON.parse(fs.readFileSync('blockchain_AskAirlineConsortium_sol_AskAirlineConsortium.abi').toString());
 
 const web3 = new Web3('ws://localhost:7545', null, {});
 let AskContract = new web3.eth.Contract(abi);

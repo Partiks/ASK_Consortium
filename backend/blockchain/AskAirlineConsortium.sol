@@ -1,7 +1,7 @@
 //https://ethereum.stackexchange.com/questions/9142/how-to-convert-a-string-to-bytes32
 //https://ethereum.stackexchange.com/questions/2519/how-to-convert-a-bytes32-to-string
 pragma solidity >=0.4.0 <0.6.0;
-contract AirlineConsortium{
+contract AskAirlineConsortium{
 	struct airline{
 		bytes32 username;
 		uint balance;
