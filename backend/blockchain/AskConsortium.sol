@@ -103,12 +103,17 @@ contract AirlineConsortium{
 			confirm_transaction[msg.sender].seats=seats;
 			confirm_transaction[msg.sender].flight_date=convert_to_bytes(flight_date);
 			confirm_transaction[msg.sender].date=convert_to_bytes(date);
-			seller.transfer(msg.value);
+			settlePayment(seller);
 		}
 		else{
 			revert();
 		}
 	}
+
+	function settlePayment(address payable seller) public payable{
+		seller.transfer(msg.value);
+	}
+
 	function registerUser(string memory  name, string memory password)public{
 		if (bytes(name).length>0 && bytes(password).length>0){
 			airlines[msg.sender].username= convert_to_bytes(name);
