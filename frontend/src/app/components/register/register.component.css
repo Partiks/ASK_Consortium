@@ -1,0 +1,48 @@
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.example-card {
+  max-width: 70%;
+}
+
+.edit-form{
+	mind-width: 150px;
+	width: 100%;
+}
+
+.card-field-full-width{
+	width: 35%;
+}
+
+.marg-left{
+  margin-left: 15px;
+}
+
+.field-full-width{
+	width: 90%;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.center{
+  width: 75%;
+  margin: 10px auto;
+}
+
+.center-icon{
+  width: 20%;
+  margin: 10px auto;
+}
+
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

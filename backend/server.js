@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import User from './models/user';
+import Customer from './models/customer';
 import SouthFlight from './models/southflight';
 import DeltaFlight from './models/deltaflight';
 import Transaction from './models/transaction';
@@ -237,7 +238,7 @@ router.route('/transactions/add/buy').post( (req, res) => {
 		console.log("Airlines not identified for buy transaction");
 	}
 	console.log("Selecting BUYING sender as "+sender);
-	var seats=transaction.seats*2;
+	var seats=transaction.seats;
 	console.log("CALCULATED SEAT PRICE = " + seats);
 	AskContract.methods.buy(seller, transaction.departure, transaction.arrival, transaction.seats, transaction.flight_date, transaction.date).send({from: sender, gas: 1000000, value: web3.utils.toWei(seats.toString(),'ether') }).then(transaction => {
 		console.log("BUY TRANSACTION lodged. Transaction ID: " + transaction.transactionHash);
@@ -501,6 +502,31 @@ router.route('/users/:username').get((req, res) => {
 	});
 });
 
+router.route('/users/:username/balance').get((req, res) => {
+	console.log("/users/username/balance called");
+	var balance;
+	if(req.params.username == 'b_south'){
+		web3.eth.getBalance(allAccounts[1]).then((bal)=>{
+			balance = web3.utils.fromWei(bal.toString(),'ether');
+			console.log("BALANCE = "+balance);
+			res.json(balance);
+		});
+	}else if(req.params.username == 'a_delta'){
+		web3.eth.getBalance(allAccounts[2]).then((bal)=>{
+			balance = web3.utils.fromWei(bal.toString(),'ether');
+			console.log("BALANCE = "+balance);
+			res.json(balance);
+		});
+	}else{
+		web3.eth.getBalance(allAccounts[4]).then((bal)=>{
+			balance = web3.utils.fromWei(bal.toString(),'ether');
+			console.log("BALANCE = "+balance);
+			res.json(balance);
+		});
+		console.log("Airlines not identified for balance query");
+	}
+});
+
 
 router.route('/users/add').post( (req, res) => {
 	console.log("/users/add called");
@@ -512,6 +538,7 @@ router.route('/users/add').post( (req, res) => {
 	}else if(user.username == 'a_delta'){
 		sender = allAccounts[2];
 	}else{
+		sender = allAccounts[4];
 		console.log("Airlines not identified for registering");
 	}
 	console.log("Selecting sender as "+sender);
@@ -539,19 +566,7 @@ router.route('/users/add').post( (req, res) => {
 				console.log("BALANCE = "+bal);
 			});
 		});
-	});
-			/*console.log("Account 0 Balance = " + web3.utils.fromWei(bal.toString(), 'ether') );
-			var bal = web3.eth.getBalance(accounts[1]);
-			console.log("BALANCE = "+bal);
-			console.log("Account 1 Balance = " + web3.utils.fromWei(bal.toString(), 'ether') );
-			var bal = web3.eth.getBalance(accounts[2]);
-			console.log("BALANCE = "+bal);
-			console.log("Account 2 Balance = " + web3.utils.fromWei(bal.toString(), 'ether') ); */
-			//res.status(200).json({'user' : 'Added sucessfully to consortium'});
-		
-	
-
-
+	});		
 	//blockchain registering end
 	
 	user.save()
@@ -594,6 +609,32 @@ router.route('/users/delete/:username').get( (req, res) => {
 			res.json(err);
 		else
 			res.json('User Deletion successful');
+	})
+});
+
+router.route('/customer/flight/change').post( (req, res) => {
+	console.log("/customer/flight/change called");
+	Customer.findOne({name: req.params.name, departure: req.params.departure, arrival: req.params.arrival, flight_date: req.params.flight_date, airlines: req.params.airlines}, (err, customer) =>{
+		if(!customer){
+			console.log("Entered update customer error");
+			res.status(400).send(err);
+			console.log("Exiting update customer error");
+		}
+		else
+		{
+			customer.name = req.body.name;
+			customer.departure = req.body.departure;
+			customer.arrival = req.body.arrival;
+			customer.seats = req.body.seats;
+			customer.flight_date = req.body.flight_date;
+			customer.airlines = req.body.airlines;
+
+			customer.save().then(customer => {
+				res.json('Updated the customer information');
+			}).catch(err => {
+				res.status(400).send(err);
+			});
+		}
 	})
 });
 

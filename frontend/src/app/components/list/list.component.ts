@@ -22,6 +22,7 @@ export class ListComponent implements OnInit {
 	buyer: any = {};
 	seller: any = {};
 	flight: any = {};
+	bal: any = {};
 	uname: String;
 	super: boolean = false;
 	displayedColumns = ['Departure', 'Arrival', 'Requester', 'Seller', 'Seats','Seat Price', 'Flight Date','Posted Date', 'Status', 'Actions'];
@@ -42,7 +43,11 @@ export class ListComponent implements OnInit {
 			//console.log((this.uname);
 			this.userService.getUserByUname(this.uname).subscribe( res => {
 				this.user = res;
-			})
+			});
+			this.userService.getUserBalance(this.uname).subscribe( (data) =>{
+				console.log("GOT THIS BALANCE FROM BLOCKCHAIN = "+data);
+				this.user.balance = data;
+			});
 		});
 	}
 
@@ -53,8 +58,9 @@ export class ListComponent implements OnInit {
 			//console.log(('Data requested and received probably');
 			//console.log((this.transactions);
 		});
-		this.userService.getUserByUname(this.uname).subscribe( (data: User) =>{
-			this.user.balance = data.balance;
+		this.userService.getUserBalance(this.uname).subscribe( (data) =>{
+			console.log("GOT THIS BALANCE FROM BLOCKCHAIN = "+data);
+			this.user.balance = data;
 		})
 
 	}

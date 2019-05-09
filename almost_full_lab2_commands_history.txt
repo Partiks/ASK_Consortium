@@ -423,48 +423,71 @@
  1453  08/05/19 01:39:05 git commit -m "Working interacting with blockchain node js code in working_blockchain folder"
  1454  08/05/19 01:39:09 git push
  1455  08/05/19 01:39:16 exit
- 1456  08/05/19 10:17:12 cd backend/
- 1457  08/05/19 10:17:14 ls
- 1458  08/05/19 10:17:32 cd ../
- 1459  08/05/19 10:18:22 mkdir backend/blockchain
- 1460  08/05/19 10:18:43 mv working_blockchain/* backend/blockchain/
- 1461  08/05/19 10:19:32 tree -L 3
- 1462  08/05/19 10:19:40 tree -L 2
- 1463  08/05/19 10:20:10 rm working_blockchain/
- 1464  08/05/19 10:20:17 rm -r working_blockchain/
- 1465  08/05/19 10:34:31 cd backend/blockchain/
- 1466  08/05/19 10:36:36 npmjs --abi --bin ask_consortium.sol 
- 1467  08/05/19 10:47:22 solcjs --abi --bin ask_consortium.sol 
- 1468  08/05/19 10:53:54 history | grep abi
- 1469  08/05/19 10:54:07 ls
- 1470  08/05/19 10:54:33 cd ..
- 1471  08/05/19 10:56:09 npm install web3@1.0.0-beta.48 --save
- 1472  08/05/19 10:58:51 history | grep "npm install"
- 1473  08/05/19 11:02:01 npm search solc version
- 1474  08/05/19 11:02:16 npm search solc --versions
- 1475  08/05/19 11:02:22 npm search solc
- 1476  08/05/19 11:03:38 npm install solc
- 1477  08/05/19 11:12:37 node_modules/.bin/solcjs --abi --bin blockchain/Payment.sol 
- 1478  08/05/19 11:12:44 ls
- 1479  08/05/19 11:13:50 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1480  08/05/19 11:14:05 ls
- 1481  08/05/19 11:17:44 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1482  08/05/19 11:19:47 ls
- 1483  08/05/19 11:20:03 rm blockchain_Payment_sol_Payment.*
- 1484  08/05/19 11:20:09 ls
- 1485  08/05/19 11:23:40 npm run dev
- 1486  08/05/19 15:04:27 npmjs --abi --bin ask_consortium.sol 
- 1487  08/05/19 15:04:36 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1488  08/05/19 15:08:38 npm run dev
- 1489  08/05/19 15:31:22 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1490  08/05/19 15:34:48 npm run dev
- 1491  08/05/19 23:39:39 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1492  08/05/19 23:43:11 npm run dev
- 1493  09/05/19 00:16:30 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1494  09/05/19 00:18:35 npm run dev
- 1495  09/05/19 00:32:22 npm view solc version
- 1496  09/05/19 00:32:32 npm view web3 version
- 1497  09/05/19 00:58:56 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
- 1498  09/05/19 00:59:24 npm run dev
- 1499  09/05/19 01:03:44 cd ..
- 1500  09/05/19 01:04:30 history | tail -n 500 > blockchain_nodejs_integration_commands_history.txt
+ 1456  08/05/19 10:17:07 cd frontend/
+ 1457  08/05/19 11:00:43 cd ../../../Lab-2_ASK_AirlineConsortium/test_blockchain/test_9/
+ 1458  08/05/19 11:00:53 npm list solc version
+ 1459  08/05/19 11:01:37 npm list web3 version
+ 1460  08/05/19 10:17:12 cd backend/
+ 1461  08/05/19 10:17:14 ls
+ 1462  08/05/19 10:17:32 cd ../
+ 1463  08/05/19 10:18:22 mkdir backend/blockchain
+ 1464  08/05/19 10:18:43 mv working_blockchain/* backend/blockchain/
+ 1465  08/05/19 10:19:32 tree -L 3
+ 1466  08/05/19 10:19:40 tree -L 2
+ 1467  08/05/19 10:20:10 rm working_blockchain/
+ 1468  08/05/19 10:20:17 rm -r working_blockchain/
+ 1469  08/05/19 10:34:31 cd backend/blockchain/
+ 1470  08/05/19 10:36:36 npmjs --abi --bin ask_consortium.sol 
+ 1471  08/05/19 10:47:22 solcjs --abi --bin ask_consortium.sol 
+ 1472  08/05/19 10:53:54 history | grep abi
+ 1473  08/05/19 10:54:07 ls
+ 1474  08/05/19 10:54:33 cd ..
+ 1475  08/05/19 10:56:09 npm install web3@1.0.0-beta.48 --save
+ 1476  08/05/19 10:58:51 history | grep "npm install"
+ 1477  08/05/19 11:02:01 npm search solc version
+ 1478  08/05/19 11:02:16 npm search solc --versions
+ 1479  08/05/19 11:02:22 npm search solc
+ 1480  08/05/19 11:03:38 npm install solc
+ 1481  08/05/19 11:12:37 node_modules/.bin/solcjs --abi --bin blockchain/Payment.sol 
+ 1482  08/05/19 11:12:44 ls
+ 1483  08/05/19 11:13:50 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1484  08/05/19 11:14:05 ls
+ 1485  08/05/19 11:17:44 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1486  08/05/19 11:19:47 ls
+ 1487  08/05/19 11:20:03 rm blockchain_Payment_sol_Payment.*
+ 1488  08/05/19 11:20:09 ls
+ 1489  08/05/19 11:23:40 npm run dev
+ 1490  08/05/19 15:04:27 npmjs --abi --bin ask_consortium.sol 
+ 1491  08/05/19 15:04:36 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1492  08/05/19 15:08:38 npm run dev
+ 1493  08/05/19 15:31:22 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1494  08/05/19 15:34:48 npm run dev
+ 1495  08/05/19 23:39:39 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1496  08/05/19 23:43:11 npm run dev
+ 1497  09/05/19 00:16:30 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1498  09/05/19 00:18:35 npm run dev
+ 1499  09/05/19 00:32:22 npm view solc version
+ 1500  09/05/19 00:32:32 npm view web3 version
+ 1501  09/05/19 00:58:56 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1502  09/05/19 00:59:24 npm run dev
+ 1503  09/05/19 01:03:44 cd ..
+ 1504  09/05/19 01:04:30 history | tail -n 500 > blockchain_nodejs_integration_commands_history.txt
+ 1505  09/05/19 01:04:31 ls
+ 1506  09/05/19 01:04:46 git add .
+ 1507  09/05/19 01:09:06 git commit -m "NodeJS and Ganache Blockchain integration working from backend side. Use solc command to compile the SC beforehand and then deploy a fresh SC instance everytime the NPM server starts. Request, Offer and Buy transactions are recorded on Blockchain. Modified smart contract to transfer ethers and did some semantic changes. Now, need to change the frontend so that balance call reads from server.js path which calls web3 and gives the desired balance and responses. Also, need to add register component logic to frontend."
+ 1508  09/05/19 01:09:15 git push
+ 1509  09/05/19 01:10:04 exit
+ 1510  09/05/19 10:20:35 npm run dev
+ 1511  09/05/19 10:20:16 ng g s Customer
+ 1512  09/05/19 10:43:31 ng g c components/register
+ 1513  09/05/19 10:43:40 tree src/app/
+ 1514  09/05/19 10:48:34 ng serve --open
+ 1515  09/05/19 11:45:32 npm view solc version
+ 1516  09/05/19 11:45:38 npm view web3 version
+ 1517  09/05/19 11:45:46 npm list web3 version
+ 1518  09/05/19 11:46:02 cd backend/
+ 1519  09/05/19 11:46:04 npm list web3 version
+ 1520  09/05/19 11:46:31 npm view web3 version
+ 1521  09/05/19 11:46:40 npm view solc version
+ 1522  09/05/19 11:47:37 ## solc version = 0.5.8, in backend folder, web3 version =  web3@1.0.0-beta.48 and globally (I don't know why), web version = 1.0.0-beta.55
+ 1523  09/05/19 11:47:58 history | tail -n 500 > almost_full_lab2_commands_history.txt

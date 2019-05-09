@@ -14,7 +14,7 @@ let User = new Schema({
 	},
 	balance:{
 		type: Number,
-		default: 95
+		default: 101
 	}
 },{ collection : 'users' }
 );
