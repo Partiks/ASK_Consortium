@@ -23,6 +23,8 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongoose": "^5.5.4"
+    "mongoose": "^5.5.4",
+    "solc": "^0.5.8",
+    "web3": "^1.0.0-beta.48"
   }
 }

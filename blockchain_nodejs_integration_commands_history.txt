@@ -1,0 +1,500 @@
+ 1001  29/04/19 11:00:54 echo $HISTFILESIZE
+ 1002  29/04/19 11:00:57 echo $HISTSIZE
+ 1003  29/04/19 11:01:00 nano ~/.profile 
+ 1004  29/04/19 11:01:50 echo $PATH
+ 1005  29/04/19 11:02:02 nano ~/.bashrc
+ 1006  29/04/19 11:03:11 exit
+ 1007  29/04/19 11:03:16 nano ~/.bashrc
+ 1008  29/04/19 11:03:18 echo $PATH
+ 1009  29/04/19 11:03:22 echo $HISTSIZE
+ 1010  29/04/19 11:03:25 echo $HISTFILESIZE
+ 1011  29/04/19 11:05:44 cd frontend/
+ 1012  29/04/19 11:05:56 ng add @angular/material
+ 1013  29/04/19 11:15:24 ## START PROJECT BLOCKCHAIN LAB-2
+ 1014  29/04/19 11:15:40 ## currently in /media/partiks/Study/510-Blockchain/Lab-2_ASK_AirlineConsortium/ASK_Consortium/frontend
+ 1015  29/04/19 11:16:21 ng g c components/list
+ 1016  29/04/19 11:18:59 ng g c components/request
+ 1017  29/04/19 11:19:53 ng g c components/login
+ 1018  29/04/19 11:20:23 ng g c components/error
+ 1019  29/04/19 11:20:51 ng g c components/transaction
+ 1020  29/04/19 11:27:08 gnome-tweaks 
+ 1021  29/04/19 11:35:07 sudo -i
+ 1022  30/04/19 10:56:17 ng serve --open
+ 1023  30/04/19 10:56:31 ng serve --open --port 4575
+ 1024  30/04/19 11:04:28 exit
+ 1025  29/04/19 11:41:53 update-alternatives --config gnome-text-editor
+ 1026  29/04/19 11:42:12 sudo -i
+ 1027  29/04/19 11:42:21 update-alternatives --config gnome-text-editor
+ 1028  29/04/19 11:45:12 nano /usr/share/applications/defaults.list 
+ 1029  29/04/19 11:46:02 sudo nano /usr/share/applications/defaults.list 
+ 1030  29/04/19 15:09:15 cd ../../
+ 1031  29/04/19 15:09:18 ng serve --open
+ 1032  29/04/19 15:15:21 ng add @angular/material
+ 1033  29/04/19 15:20:14 ng serve --open
+ 1034  29/04/19 15:21:20 cd ../backend/
+ 1035  29/04/19 15:21:35 npm init -y
+ 1036  29/04/19 15:23:50 npm install --save-dev babel-cli babel-present-env
+ 1037  29/04/19 15:25:21 npm install --save-dev babel-core babel-cli babel-present-env
+ 1038  29/04/19 15:26:52 npm install --save-dev babel-core
+ 1039  29/04/19 15:27:29 npm install --save-dev babel-preset-env
+ 1040  29/04/19 15:28:25 npm install --save body-parser
+ 1041  29/04/19 15:29:22 npm install express mongoose cors
+ 1042  29/04/19 15:30:12 npm install --save-dev babel-watch
+ 1043  29/04/19 15:43:00 cd ../../../Lab-2_ASK_AirlineConsortium/
+ 1044  29/04/19 15:43:06 tree .
+ 1045  29/04/19 15:45:49 ls
+ 1046  29/04/19 15:45:56 cd ASK_Consortium/
+ 1047  29/04/19 15:45:57 ls
+ 1048  29/04/19 15:46:00 cd frontend/
+ 1049  29/04/19 15:47:46 npm install --save-dev babel-core
+ 1050  29/04/19 15:48:00 npm init -y
+ 1051  29/04/19 15:48:12 npm install --save-dev babel-core
+ 1052  29/04/19 15:49:23 npm install --save-dev babel-preset-env
+ 1053  29/04/19 15:50:11 npm install --save body-parser
+ 1054  29/04/19 15:50:47 npm install express mongoose cors
+ 1055  29/04/19 15:51:26 npm install --save-dev babel-watch
+ 1056  29/04/19 15:53:30 git show
+ 1057  29/04/19 15:54:31 cd ..
+ 1058  29/04/19 15:56:16 cd frontend/
+ 1059  29/04/19 15:56:17 ls -la
+ 1060  29/04/19 15:57:51 history | tail -n 500 > ../commands.txt
+ 1061  29/04/19 15:59:27 cd ..
+ 1062  29/04/19 15:59:29 ls
+ 1063  29/04/19 15:59:30 tree
+ 1064  29/04/19 15:59:34 rm frontend/
+ 1065  29/04/19 15:59:38 rm -r frontend/
+ 1066  29/04/19 15:59:42 tree
+ 1067  29/04/19 16:00:13 ## START PROJECT BLOCKCHAIN LAB-2
+ 1068  29/04/19 16:00:26 ## currently in /media/partiks/Study/510-Blockchain/Lab-2_ASK_AirlineConsortium/ASK_Consortium
+ 1069  29/04/19 16:00:45 ng new frontend
+ 1070  29/04/19 16:03:20 cd frontend/
+ 1071  29/04/19 16:03:29 ng g c components/list
+ 1072  29/04/19 16:03:36 ng g c components/request
+ 1073  29/04/19 16:03:41 ng g c components/login
+ 1074  29/04/19 16:03:47 ng g c components/error
+ 1075  29/04/19 16:03:53 ng g c components/transaction
+ 1076  29/04/19 16:04:16 ng add @angular/material
+ 1077  29/04/19 16:06:32 cd ../backend/
+ 1078  29/04/19 16:06:38 ls
+ 1079  29/04/19 16:06:42 ls -la
+ 1080  29/04/19 16:06:47 npm init -y
+ 1081  29/04/19 16:07:06 npm install --save-dev babel-core
+ 1082  29/04/19 16:07:41 npm install --save-dev babel-preset-env
+ 1083  29/04/19 16:08:30 npm install --save body-parser
+ 1084  29/04/19 16:08:42 npm install express mongoose cors
+ 1085  29/04/19 16:09:27 npm install --save-dev babel-watch
+ 1086  29/04/19 16:10:35 cd ../frontend/
+ 1087  29/04/19 16:10:39 ng serve --open
+ 1088  29/04/19 16:42:28 cd ../backend/
+ 1089  29/04/19 16:42:37 npm install --save-dev babel-cli
+ 1090  30/04/19 10:38:09 cd ../frontend/ && ng serve --open
+ 1091  30/04/19 10:38:48 ng add @angular/material
+ 1092  30/04/19 10:40:55 ng serve --open
+ 1093  30/04/19 10:58:16 ng add @angular/material
+ 1094  30/04/19 10:59:21 npm audit
+ 1095  30/04/19 11:00:02 npm audit fix
+ 1096  30/04/19 11:00:48 ng serve --open
+ 1097  30/04/19 11:01:28 ng add @angular/material
+ 1098  30/04/19 11:02:04 ng serve --open
+ 1099  30/04/19 11:04:36 exit
+ 1100  30/04/19 11:24:27 npm run dev
+ 1101  30/04/19 11:25:37 npm install --save-dev babel-watch
+ 1102  30/04/19 11:26:02 npm run dev
+ 1103  30/04/19 11:26:19 npm install --save-dev babel-core
+ 1104  30/04/19 11:26:41 npm run dev
+ 1105  30/04/19 11:27:09 npm install --save-dev @babel/core
+ 1106  30/04/19 11:27:37 npm run dev
+ 1107  30/04/19 11:27:57 npm install --save-dev @babel/preset-env
+ 1108  30/04/19 11:28:20 npm run dev
+ 1109  30/04/19 12:13:36 ng serve --open --port 45757
+ 1110  30/04/19 12:13:39 ng serve --open --port 4575
+ 1111  30/04/19 14:16:26 exit
+ 1112  30/04/19 14:16:37 exit
+ 1113  30/04/19 11:45:21 ng new frontend
+ 1114  30/04/19 11:46:19 ## starting the frontend over again
+ 1115  30/04/19 11:46:22 cd frontend/
+ 1116  30/04/19 11:46:50 ng serve --open
+ 1117  30/04/19 11:47:49 ng add @angular/material
+ 1118  30/04/19 11:49:27 history | grep "ng g c"
+ 1119  30/04/19 11:49:37 ng g c components/list
+ 1120  30/04/19 11:49:41 ng g c components/request
+ 1121  30/04/19 11:49:50 ng g c components/login
+ 1122  30/04/19 11:49:55 ng g c components/error
+ 1123  30/04/19 11:50:00 ng g c components/transaction
+ 1124  30/04/19 11:52:28 ng serve --open
+ 1125  30/04/19 14:50:41 cd ../backend/ && npm run dev
+ 1126  30/04/19 15:23:38 cd ../frontend/
+ 1127  30/04/19 15:24:00 ng g s Flight
+ 1128  30/04/19 15:24:07 ng g s User
+ 1129  30/04/19 15:24:17 ng g s Transaction
+ 1130  30/04/19 15:38:37 ng g s DeltaFlight
+ 1131  30/04/19 15:38:46 ng g s SouthwestFlight
+ 1132  30/04/19 16:06:36 cd ../backend/
+ 1133  30/04/19 16:06:40 npm run dev
+ 1134  30/04/19 20:28:47 cd ..
+ 1135  30/04/19 20:32:55 history | tail -n 100 > lab2_setup_commands.txt
+ 1136  30/04/19 20:33:22 exit
+ 1137  30/04/19 20:33:27 history | tail -n 100 > lab2_setup_commands.txt
+ 1138  30/04/19 20:35:45 git init
+ 1139  30/04/19 20:35:52 git add .
+ 1140  30/04/19 20:38:10 git commit -m "Backend is almost fully prepared. Initial stages of connecting frontend and backend. Frontend work is remaining."
+ 1141  30/04/19 20:47:39 git remote add origin git@github.com:Partiks/Blockchain-Lab2.git
+ 1142  30/04/19 20:47:46 git push -u origin master
+ 1143  30/04/19 20:53:16 git init
+ 1144  30/04/19 20:53:20 git add .
+ 1145  30/04/19 20:53:35 git commit -m "Backend is almost fully prepared. Initial stages of connecting frontend and backend. Frontend work is remaining."
+ 1146  30/04/19 20:53:44 git push -u origin master
+ 1147  30/04/19 20:53:50 git remote add origin git@github.com:Partiks/Blockchain-Lab2.git
+ 1148  30/04/19 20:53:53 git push -u origin master
+ 1149  30/04/19 20:54:57 cd ..
+ 1150  30/04/19 20:54:59 mkdir foo
+ 1151  30/04/19 20:55:02 cd foo/
+ 1152  30/04/19 20:55:24 git init
+ 1153  30/04/19 20:55:31 git remote add origin git@github.com:Partiks/Blockchain-Lab2.git
+ 1154  30/04/19 20:55:49 git commit -m "mistake, pushing empty directory"
+ 1155  30/04/19 20:56:07 git push -f
+ 1156  30/04/19 20:56:15 git push -u origin -f
+ 1157  30/04/19 20:56:22 git push -f -u origin
+ 1158  30/04/19 20:56:29 git push --set-upstream origin master
+ 1159  30/04/19 20:57:12 touch mistake.txt
+ 1160  30/04/19 20:57:16 git commit -m "mistake, pushing empty directory"
+ 1161  30/04/19 20:57:32 git push -f -u origin
+ 1162  30/04/19 20:57:37 git push --set-upstream origin master
+ 1163  30/04/19 20:57:42 git add .
+ 1164  30/04/19 20:57:44 git commit -m "mistake, pushing empty directory"
+ 1165  30/04/19 20:57:48 git push --set-upstream origin master
+ 1166  30/04/19 20:58:03 git push -f
+ 1167  30/04/19 20:58:29 git branch --set-upstream master origin/master
+ 1168  30/04/19 20:58:39 git branch --set-upstream-to origin/master
+ 1169  30/04/19 20:58:45 git branch --set-upstream-to master
+ 1170  30/04/19 20:58:51 git branch --set-upstream-to origin
+ 1171  30/04/19 20:59:20 git push --mirror --force
+ 1172  30/04/19 21:00:05 cd ..
+ 1173  30/04/19 21:00:08 rm -rf foo/
+ 1174  30/04/19 21:00:15 cd ASK_Consortium/
+ 1175  30/04/19 21:00:16 ls
+ 1176  30/04/19 21:00:31 ls -la
+ 1177  30/04/19 21:00:52 git remote add origin git@github.com:Partiks/Blockchain-Lab2.git
+ 1178  30/04/19 21:01:06 git commit -m "Backend is almost fully prepared. Initial stages of connecting frontend and backend. Frontend work is remaining."
+ 1179  30/04/19 21:01:12 git add .
+ 1180  30/04/19 21:01:15 git commit -m "Backend is almost fully prepared. Initial stages of connecting frontend and backend. Frontend work is remaining."
+ 1181  30/04/19 21:01:29 git push -u origin master
+ 1182  30/04/19 21:01:38 git push -u origin master --mirror --force
+ 1183  30/04/19 21:01:48 git push --mirror --force
+ 1184  30/04/19 21:22:30 cd frontend/
+ 1185  30/04/19 21:22:59 ng serve --open
+ 1186  30/04/19 21:41:22 npm run dev
+ 1187  30/04/19 21:42:28 git add .
+ 1188  30/04/19 21:43:00 git commit -m "Login component works from frontend to backend. Next, List component"
+ 1189  30/04/19 21:43:03 git push
+ 1190  30/04/19 21:43:12 git push --set-upstream origin master
+ 1191  30/04/19 23:28:54 cd frontend/
+ 1192  30/04/19 23:29:05 ng serve --open
+ 1193  01/05/19 02:06:28 exit
+ 1194  30/04/19 23:28:58 cd backend/
+ 1195  30/04/19 23:29:01 npm run dev
+ 1196  01/05/19 02:06:34 exit
+ 1197  01/05/19 10:17:43 npm run dev
+ 1198  02/05/19 02:41:31 exit
+ 1199  01/05/19 11:18:10 ng g c request
+ 1200  01/05/19 11:20:58 ng g c components/request
+ 1201  01/05/19 23:45:09 ng serve --open
+ 1202  02/05/19 02:41:35 exit
+ 1203  02/05/19 02:42:08 git add .
+ 1204  02/05/19 02:43:06 git commit -m "Basic List component working. Request working fine. Somehow, JSON returned from specificFlights from Node is not getting parsed correctly in FlightService.ts"
+ 1205  02/05/19 02:43:09 git push
+ 1206  02/05/19 02:43:14 exit
+ 1207  02/05/19 11:15:16 ng serve --open
+ 1208  02/05/19 15:21:14 ng serve
+ 1209  02/05/19 22:13:04 exit
+ 1210  02/05/19 11:15:22 npm run dev
+ 1211  02/05/19 22:13:06 exit
+ 1212  02/05/19 22:13:44 history | grep tail
+ 1213  02/05/19 22:14:12 history | tail -n 200 >> lab2_working_commands.txt
+ 1214  02/05/19 22:14:16 git add .
+ 1215  02/05/19 22:15:06 git commit -m "Offer Seats transactions working. Changed Date formatting in frontend as well as backend code. Added Specific flight searching code in server.js"
+ 1216  02/05/19 22:15:12 git push
+ 1217  02/05/19 22:15:36 cd backend/
+ 1218  02/05/19 22:15:39 npm run dev
+ 1219  03/05/19 02:54:28 exit
+ 1220  02/05/19 22:15:33 cd frontend/
+ 1221  02/05/19 22:15:43 ng serve
+ 1222  03/05/19 02:54:46 exit
+ 1223  03/05/19 02:55:01 git fetch
+ 1224  03/05/19 02:55:14 git pull
+ 1225  03/05/19 02:55:22 git add .
+ 1226  03/05/19 02:56:06 git commit -m "List component working as inteded for most part. Buy, Offer Seats is working fully. Frontend almost ready."
+ 1227  03/05/19 02:56:13 git push
+ 1228  03/05/19 11:40:58 cd backend/
+ 1229  03/05/19 11:41:01 npm run dev
+ 1230  03/05/19 15:11:30 exit
+ 1231  03/05/19 11:40:48 cd frontend/
+ 1232  03/05/19 11:40:53 ng serve --open
+ 1233  03/05/19 15:11:34 exit
+ 1234  03/05/19 15:12:06 ssh parthras@timberlake.cse.buffalo.edu:/home/parthras
+ 1235  03/05/19 15:12:19 ssh parthras@timberlake.cse.buffalo.edu
+ 1236  03/05/19 15:17:47 ls
+ 1237  03/05/19 15:18:24 scp Lab3Abstract_parthras.pdf parthras@timberlake.cse.buffalo.edu:/home/csgrad/parthras/cse587/
+ 1238  03/05/19 15:18:35 ssh parthras@timberlake.cse.buffalo.edu
+ 1239  03/05/19 15:19:37 exit
+ 1240  03/05/19 15:27:32 npm run dev
+ 1241  03/05/19 16:12:16 exit
+ 1242  03/05/19 15:27:37 ng serve --open
+ 1243  03/05/19 16:12:19 exit
+ 1244  03/05/19 16:12:41 git add .
+ 1245  03/05/19 16:13:31 git commit -m "Web app working as intended. User balance now gets updated after every transaction. Only register component is remaining to implement."
+ 1246  03/05/19 16:13:37 git push
+ 1247  03/05/19 16:13:44 exit
+ 1248  03/05/19 16:56:37 scp Lab3Abstract.pdf parthras@timberlake.cse.buffalo.edu:/home/csgrad/parthras/cse587/
+ 1249  03/05/19 16:56:53 ssh parthras@timberlake.cse.buffalo.edu
+ 1250  03/05/19 19:55:52 ## TESTING BALLOT-DEMO BY PROFESSOR BINA
+ 1251  03/05/19 19:56:53 truffle compile
+ 1252  03/05/19 19:53:19 truffle version
+ 1253  03/05/19 20:24:32 truffle migrate --reset
+ 1254  03/05/19 20:24:57 ls -la
+ 1255  03/05/19 20:25:41 truffle migrate --reset
+ 1256  03/05/19 20:25:54 truffle test
+ 1257  03/05/19 20:30:39 cd ../ballot-app/
+ 1258  03/05/19 20:30:48 npm install
+ 1259  03/05/19 20:31:31 npm run dev
+ 1260  03/05/19 20:47:30 exit
+ 1261  03/05/19 20:23:51 truffle develop
+ 1262  03/05/19 20:48:00 exit
+ 1263  03/05/19 22:26:49 truffle init
+ 1264  03/05/19 22:28:14 ls
+ 1265  03/05/19 22:28:26 nano contracts/Payment.sol
+ 1266  03/05/19 22:32:49 truffle migrate --compile-all --reset --network ganache
+ 1267  03/05/19 22:36:13 nano contracts/Payment.sol
+ 1268  03/05/19 22:36:16 truffle migrate --compile-all --reset --network ganache
+ 1269  03/05/19 22:44:10 truffle console --network ganache
+ 1270  03/05/19 22:46:19 truffle compile
+ 1271  03/05/19 22:46:28 truffle migrate --reset
+ 1272  03/05/19 22:46:39 truffle console --network ganache
+ 1273  03/05/19 22:47:38 ls
+ 1274  03/05/19 22:48:37 truffle migrate --compile-all --reset --network ganache
+ 1275  03/05/19 22:51:07 truffle console --network ganache
+ 1276  04/05/19 01:00:16 cd ..
+ 1277  04/05/19 01:00:22 mkdir test2
+ 1278  04/05/19 01:00:26 cd test2/
+ 1279  04/05/19 01:00:33 truffle init
+ 1280  04/05/19 01:04:26 truffle compile
+ 1281  04/05/19 01:05:43 truffle init
+ 1282  04/05/19 01:05:49 ls
+ 1283  04/05/19 01:05:57 rm tmp-5360rm2Wgqo1Ojrf/
+ 1284  04/05/19 01:06:02 rm -rf tmp-5360rm2Wgqo1Ojrf/
+ 1285  04/05/19 01:06:05 truffle compile
+ 1286  04/05/19 01:07:36 truffle migrate --compile-all --reset --network ganache
+ 1287  04/05/19 01:08:39 truffle console --network ganache
+ 1288  04/05/19 01:17:27 cd ..
+ 1289  04/05/19 01:17:40 mkdir metacoin_test
+ 1290  04/05/19 01:17:45 cd metacoin_test/
+ 1291  04/05/19 01:17:55 truffle init
+ 1292  04/05/19 01:18:08 truffle compiler
+ 1293  04/05/19 01:18:26 truffle migrate
+ 1294  04/05/19 01:19:15 truffle test test/metacoin.js
+ 1295  05/05/19 16:47:39 scp Lab3Report.pdf parthras@timberlake.cse.buffalo.edu:/home/csgrad/parthras/cse587/
+ 1296  05/05/19 16:47:52 ssh parthras@timberlake.cse.buffalo.edu
+ 1297  05/05/19 16:48:30 exit
+ 1298  05/05/19 11:15:52 ssh -i "dic-3.pem" ec2-user@ec2-52-91-249-34.compute-1.amazonaws.com
+ 1299  05/05/19 11:26:04 ssh -i "dic-3.pem" ubuntu@ec2-35-175-235-250.compute-1.amazonaws.com
+ 1300  05/05/19 13:59:41 cd ../../../510-Blockchain/Lab-2_ASK_AirlineConsortium/test_blockchain/ && npm install web3
+ 1301  05/05/19 16:48:43 exit
+ 1302  05/05/19 16:52:07 truffle console
+ 1303  05/05/19 16:54:30 truffle migrate — compile-all — reset — network ganache
+ 1304  05/05/19 16:55:04 truffle migrate --compile-all --reset --network ganache
+ 1305  05/05/19 16:55:39 Payment.deployed().then(function(instance){ app = instance;})
+ 1306  05/05/19 16:56:22 Payment.deployed().then(function(instance){app = instance;})
+ 1307  05/05/19 16:56:34 truffle console
+ 1308  05/05/19 17:03:55 cd ..
+ 1309  05/05/19 17:03:57 ls
+ 1310  05/05/19 17:04:00 mkdir ankit_test
+ 1311  05/05/19 17:04:02 cd ankit_test/
+ 1312  05/05/19 17:04:06 truffle inint
+ 1313  05/05/19 17:04:08 truffle init
+ 1314  05/05/19 17:04:22 nano truffle.js
+ 1315  05/05/19 17:09:25 truffle migrate --network ganache
+ 1316  05/05/19 17:10:01 truffle migrate --reset --network ganache
+ 1317  05/05/19 17:18:43 npm ls web3
+ 1318  05/05/19 17:25:28 ls
+ 1319  05/05/19 17:25:51 ng new Web3Test
+ 1320  05/05/19 17:29:45 cd Web3Test/
+ 1321  05/05/19 17:31:22 rm -rf .git/
+ 1322  05/05/19 17:32:15 cd ../../partiks_test/
+ 1323  05/05/19 17:32:16 ls
+ 1324  05/05/19 17:32:19 tree
+ 1325  05/05/19 17:32:29 truffle console
+ 1326  05/05/19 18:00:50 cd ../
+ 1327  05/05/19 18:00:52 ls
+ 1328  05/05/19 18:04:05 truffle init
+ 1329  05/05/19 18:05:45 truffle migrate --compile-all --reset --network ganache
+ 1330  05/05/19 18:06:20 truffle console
+ 1331  05/05/19 18:23:21 cd ../election-2019_update/
+ 1332  05/05/19 18:23:34 npm install
+ 1333  05/05/19 18:31:07 truffle migrate --reset
+ 1334  05/05/19 18:35:27 npm run dev
+ 1335  05/05/19 18:51:40 exit
+ 1336  05/05/19 18:52:17 ng new transfer
+ 1337  05/05/19 18:57:43 npm run dev
+ 1338  05/05/19 18:57:51 npm run
+ 1339  05/05/19 18:57:58 ng serve
+ 1340  05/05/19 18:58:03 ls
+ 1341  05/05/19 18:58:08 cd transfer/
+ 1342  05/05/19 18:58:11 ng serve
+ 1343  05/05/19 18:58:46 npm install web3
+ 1344  05/05/19 18:59:44 npm install truffle-contract
+ 1345  05/05/19 19:00:29 ng g s ethcontract
+ 1346  05/05/19 19:10:31 ng serve --open
+ 1347  05/05/19 19:51:02 fg
+ 1348  06/05/19 02:16:13 ## checkpoint last in /media/partiks/Study/510-Blockchain/Lab-2_ASK_AirlineConsortium/test_blockchain/partiks_integrate/transfer/\
+ 1349  06/05/19 02:16:19 exit
+ 1350  06/05/19 15:46:38 # currently in ASK_Consortium
+ 1351  06/05/19 15:46:42 git add .
+ 1352  06/05/19 15:47:12 git commit -m "Minor bug fixes, don't know what, haven't started this project since 2 days"
+ 1353  06/05/19 15:48:45 ng serve --open
+ 1354  06/05/19 15:49:40 cd transfer/
+ 1355  06/05/19 15:49:42 ng serve --open
+ 1356  06/05/19 19:46:07 cd ../../
+ 1357  06/05/19 19:46:33 mkdir test_8
+ 1358  06/05/19 19:46:37 cd test_8/
+ 1359  06/05/19 19:46:53 npm init
+ 1360  06/05/19 19:47:28 ls
+ 1361  06/05/19 19:47:36 npm install web3
+ 1362  06/05/19 19:47:44 npm install web3 --save
+ 1363  06/05/19 19:49:12 npm install express --save
+ 1364  06/05/19 19:49:28 npm install ethereumjs-tx --save
+ 1365  06/05/19 19:53:55 node index.js 
+ 1366  06/05/19 19:54:40 truffle init
+ 1367  06/05/19 19:55:22 ls
+ 1368  06/05/19 19:55:38 ls -la
+ 1369  06/05/19 19:56:04 ls --help
+ 1370  06/05/19 19:56:27 ls -la --sort
+ 1371  06/05/19 19:56:31 ls -la --sort time
+ 1372  06/05/19 20:05:39 truffle compile
+ 1373  06/05/19 20:05:52 truffle migrate --reset
+ 1374  06/05/19 20:06:04 truffle test
+ 1375  06/05/19 20:06:40 nano build/contracts/Payment.json 
+ 1376  06/05/19 20:06:52 subl build/contracts/Payment.json 
+ 1377  06/05/19 20:13:56 node index.js 
+ 1378  07/05/19 10:33:52 npm run
+ 1379  07/05/19 10:34:03 ls
+ 1380  07/05/19 10:37:05 cd ../
+ 1381  07/05/19 10:37:11 mkdir test_9
+ 1382  07/05/19 10:37:14 cd test_9/
+ 1383  07/05/19 10:37:47 npm init
+ 1384  07/05/19 10:37:56 npm init -y
+ 1385  07/05/19 10:37:59 ls -la
+ 1386  07/05/19 10:38:28 subl package.json 
+ 1387  07/05/19 10:43:21 npm install --save-dev babel-watch
+ 1388  07/05/19 10:43:32 npm install --save babel-watch
+ 1389  07/05/19 10:43:47 npm install --save babel-watch @babel/core @babel/preset-env
+ 1390  07/05/19 10:44:44 npm install express mongoose cors
+ 1391  07/05/19 10:45:20 npm install --save body-parser
+ 1392  07/05/19 10:48:21 npm run
+ 1393  07/05/19 10:48:28 npm start
+ 1394  07/05/19 10:49:18 npm run dev
+ 1395  07/05/19 11:07:41 ls
+ 1396  07/05/19 11:07:46 npm install web3
+ 1397  07/05/19 11:13:30 npm install solc
+ 1398  07/05/19 11:14:05 npm install abi-decoder
+ 1399  07/05/19 12:37:31 npm install solc@0.4.25
+ 1400  07/05/19 12:38:17 npm run dev
+ 1401  07/05/19 12:48:02 npm install solc
+ 1402  07/05/19 12:48:31 npm run dev
+ 1403  07/05/19 15:31:58 npm remove web3
+ 1404  07/05/19 15:32:30 npm install web3
+ 1405  07/05/19 15:32:35 npm run dev
+ 1406  07/05/19 15:34:09 npm remove solc
+ 1407  07/05/19 15:34:43 npm run dev
+ 1408  07/05/19 15:37:05 npm install solc
+ 1409  07/05/19 15:37:36 npm run dev
+ 1410  07/05/19 15:40:24 solc contracts/Payment.sol 
+ 1411  07/05/19 15:40:32 sol
+ 1412  07/05/19 15:45:30 node server.js 
+ 1413  07/05/19 15:45:51 npm run
+ 1414  07/05/19 15:45:58 npm start
+ 1415  07/05/19 15:47:30 npm run dev
+ 1416  07/05/19 15:51:52 npm uninstall solc
+ 1417  07/05/19 15:52:32 npm install solc
+ 1418  07/05/19 15:53:18 npm uninstall solc
+ 1419  07/05/19 15:58:37 npm install solc
+ 1420  07/05/19 15:59:11 npm run dev
+ 1421  07/05/19 16:06:08 npm uninstall solc
+ 1422  07/05/19 16:06:36 npm install solc@0.5.3
+ 1423  07/05/19 16:08:11 npm run dev
+ 1424  07/05/19 16:09:23 node_modules/.bin/solcjs --bin --abi contracts/Payment.sol 
+ 1425  07/05/19 16:09:36 ls
+ 1426  07/05/19 16:15:25 npm run dev
+ 1427  07/05/19 16:59:17 clear
+ 1428  07/05/19 16:59:19 npm run dev
+ 1429  07/05/19 19:17:24 npm --help
+ 1430  07/05/19 19:18:07 npm npm list -g
+ 1431  07/05/19 19:18:11 npm list -g
+ 1432  07/05/19 19:24:02 npm install web3
+ 1433  07/05/19 19:25:21 npm run dev
+ 1434  07/05/19 19:59:36 npm view solc version
+ 1435  07/05/19 19:59:47 npm view web3 version
+ 1436  07/05/19 20:01:49 npm run dev
+ 1437  07/05/19 20:05:13 npm -g install web3
+ 1438  07/05/19 20:06:00 npm run dev
+ 1439  07/05/19 20:12:53 clear
+ 1440  07/05/19 20:12:54 npm run dev
+ 1441  07/05/19 20:14:17 ## checkpoint, interaction with Blockchain working now, currently in test_9 directory. For some weird reason, the address of contract is not getting returned after deployment in code. Will have to see what to do about that
+ 1442  07/05/19 20:20:03 npm run dev
+ 1443  07/05/19 20:39:54 npm list web3 version
+ 1444  07/05/19 20:42:50 npm uninstall abi-decoder --save-dev
+ 1445  07/05/19 20:43:51 npm run dev
+ 1446  07/05/19 20:50:30 npm uninstall web3 --save-dev
+ 1447  07/05/19 20:51:26 npm install web3@1.0.0-beta48 --save-dev
+ 1448  07/05/19 20:52:25 npm view web3 versions
+ 1449  07/05/19 20:52:51 npm install web3@1.0.0-beta.48 --save-dev
+ 1450  07/05/19 20:56:13 npm run dev
+ 1451  08/05/19 01:35:02 cd ..
+ 1452  08/05/19 01:38:42 git add .
+ 1453  08/05/19 01:39:05 git commit -m "Working interacting with blockchain node js code in working_blockchain folder"
+ 1454  08/05/19 01:39:09 git push
+ 1455  08/05/19 01:39:16 exit
+ 1456  08/05/19 10:17:12 cd backend/
+ 1457  08/05/19 10:17:14 ls
+ 1458  08/05/19 10:17:32 cd ../
+ 1459  08/05/19 10:18:22 mkdir backend/blockchain
+ 1460  08/05/19 10:18:43 mv working_blockchain/* backend/blockchain/
+ 1461  08/05/19 10:19:32 tree -L 3
+ 1462  08/05/19 10:19:40 tree -L 2
+ 1463  08/05/19 10:20:10 rm working_blockchain/
+ 1464  08/05/19 10:20:17 rm -r working_blockchain/
+ 1465  08/05/19 10:34:31 cd backend/blockchain/
+ 1466  08/05/19 10:36:36 npmjs --abi --bin ask_consortium.sol 
+ 1467  08/05/19 10:47:22 solcjs --abi --bin ask_consortium.sol 
+ 1468  08/05/19 10:53:54 history | grep abi
+ 1469  08/05/19 10:54:07 ls
+ 1470  08/05/19 10:54:33 cd ..
+ 1471  08/05/19 10:56:09 npm install web3@1.0.0-beta.48 --save
+ 1472  08/05/19 10:58:51 history | grep "npm install"
+ 1473  08/05/19 11:02:01 npm search solc version
+ 1474  08/05/19 11:02:16 npm search solc --versions
+ 1475  08/05/19 11:02:22 npm search solc
+ 1476  08/05/19 11:03:38 npm install solc
+ 1477  08/05/19 11:12:37 node_modules/.bin/solcjs --abi --bin blockchain/Payment.sol 
+ 1478  08/05/19 11:12:44 ls
+ 1479  08/05/19 11:13:50 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1480  08/05/19 11:14:05 ls
+ 1481  08/05/19 11:17:44 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1482  08/05/19 11:19:47 ls
+ 1483  08/05/19 11:20:03 rm blockchain_Payment_sol_Payment.*
+ 1484  08/05/19 11:20:09 ls
+ 1485  08/05/19 11:23:40 npm run dev
+ 1486  08/05/19 15:04:27 npmjs --abi --bin ask_consortium.sol 
+ 1487  08/05/19 15:04:36 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1488  08/05/19 15:08:38 npm run dev
+ 1489  08/05/19 15:31:22 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1490  08/05/19 15:34:48 npm run dev
+ 1491  08/05/19 23:39:39 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1492  08/05/19 23:43:11 npm run dev
+ 1493  09/05/19 00:16:30 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1494  09/05/19 00:18:35 npm run dev
+ 1495  09/05/19 00:32:22 npm view solc version
+ 1496  09/05/19 00:32:32 npm view web3 version
+ 1497  09/05/19 00:58:56 node_modules/.bin/solcjs --abi --bin blockchain/AskConsortium.sol 
+ 1498  09/05/19 00:59:24 npm run dev
+ 1499  09/05/19 01:03:44 cd ..
+ 1500  09/05/19 01:04:30 history | tail -n 500 > blockchain_nodejs_integration_commands_history.txt
